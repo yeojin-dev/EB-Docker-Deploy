@@ -31,10 +31,13 @@ SECRET_KEY = json_object['SECRET_KEY']
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'members.User'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'members',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
