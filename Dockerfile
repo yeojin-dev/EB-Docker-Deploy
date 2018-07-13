@@ -8,9 +8,6 @@ RUN         apt -y install nginx supervisor
 COPY        ./requirements.txt /srv
 RUN         pip install -r /srv/requirements.txt
 
-FROM        eb-docker:base
-MAINTAINER  yeojin.dev@gmail.com
-
 ENV         BUILD_MODE              production
 ENV         DJANGO_SETTINGS_MODULE  config.settings.${BUILD_MODE}
 ENV         PROJECT_DIR             /srv/project
@@ -24,5 +21,8 @@ RUN         rm -f /etc/nginx/sites-enabled/*
 RUN         ln -fs /etc/nginx/sites-available/nginx_app.conf                    /etc/nginx/sites-enabled
 
 RUN         cp -f ${PROJECT_DIR}/.config/${BUILD_MODE}/supervisor_app.conf  /etc/supervisor/conf.d
+
+# 7000번 포트 open
+EXPOSE      7000
 
 CMD         supervisord -n
