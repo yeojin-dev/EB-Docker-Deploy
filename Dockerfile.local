@@ -3,5 +3,9 @@ MAINTAINER  yeojin.dev@gmail.com
 
 ENV         BUILD_MODE              local
 ENV         DJANGO_SETTINGS_MODULE  config.settings.${BUILD_MODE}
+ENV         PROJECT_DIR             /srv/project
 
-COPY        .   /srv/project
+COPY        .   ${PROJECT_DIR}
+WORKDIR     ${PROJECT_DIR}
+
+CMD         python app/manage.py runserver 0:80
