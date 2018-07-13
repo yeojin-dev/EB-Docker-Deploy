@@ -12,6 +12,8 @@ ENV         BUILD_MODE              production
 ENV         DJANGO_SETTINGS_MODULE  config.settings.${BUILD_MODE}
 ENV         PROJECT_DIR             /srv/project
 
+RUN             mkdir /var/log/django
+
 COPY        .   ${PROJECT_DIR}
 WORKDIR     ${PROJECT_DIR}
 
