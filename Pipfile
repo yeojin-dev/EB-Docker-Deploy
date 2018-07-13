@@ -9,6 +9,8 @@ uwsgi = "*"
 
 [dev-packages]
 awsebcli = "*"
+ipython = "*"
+django-extensions = "*"
 
 [requires]
 python_version = "3.7"

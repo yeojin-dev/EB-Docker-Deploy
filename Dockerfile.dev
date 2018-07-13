@@ -5,6 +5,9 @@ ENV         BUILD_MODE              dev
 ENV         DJANGO_SETTINGS_MODULE  config.settings.${BUILD_MODE}
 ENV         PROJECT_DIR             /srv/project
 
+COPY        ./requirements.txt /srv
+RUN         pip install -r /srv/requirements.txt
+
 COPY        .   ${PROJECT_DIR}
 WORKDIR     ${PROJECT_DIR}
 
