@@ -1,12 +1,5 @@
-FROM        python:3.7.0-slim
+FROM        bluemeta/fc-8th-eb-docker:base
 MAINTAINER  yeojin.dev@gmail.com
-
-RUN         apt -y update && apt -y dist-upgrade
-RUN         apt -y install build-essential
-RUN         apt -y install nginx supervisor
-
-COPY        ./requirements.txt /srv
-RUN         pip install -r /srv/requirements.txt
 
 ENV         BUILD_MODE              production
 ENV         DJANGO_SETTINGS_MODULE  config.settings.${BUILD_MODE}
