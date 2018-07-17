@@ -11,6 +11,8 @@ MEDIA_ROOT = os.path.join(ROOT_DIR, '.media')
 # WSGI
 WSGI_APPLICATION = 'config.wsgi.dev.application'
 
+INSTALLED_APPS += ['django_extensions']
+
 # DB
 DATABASES = {
     'default': {
