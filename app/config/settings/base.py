@@ -111,3 +111,11 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'members.backends.SettingsBackend',
+]
+
+ADMIN_LOGIN = 'admin'
+ADMIN_PASSWORD = 'pbkdf2_sha256$100000$kbjAfbjjSOdA$WeU1/+gnYYIOqDDPmE0bJIIYmr15m7U4sEEJuDhuWx0='
